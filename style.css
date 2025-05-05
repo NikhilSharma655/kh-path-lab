@@ -4,23 +4,13 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-.form-box .form-image {
-  width: 100%;
-  max-width: 200px; /* Adjust as needed */
-  margin: 0 auto 20px; /* Center and add spacing below */
-  display: block;
-  border-radius: 10px; /* Optional: Add rounded corners */
-}
 
-}
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(90deg, #86a5fc, #c9d6ff);
-  background: linear-gradient(90deg, #86a5fc, #c9d6ff, #86a5fc);
-  background-size: 400% 400%;
+  background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
 }
 
 .container {
