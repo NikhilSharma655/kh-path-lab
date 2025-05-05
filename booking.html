@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a Test | KH Path Lab</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f8f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #007B83;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background: #007B83;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background: #005f66;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      font-size: 15px;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #007B83;
+      border-radius: 4px;
+      margin-right: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .checkbox-group input[type="checkbox"]:checked::before {
+      content: "✔";
+      position: absolute;
+      left: 2px;
+      top: -3px;
+      color: white;
+      background-color: #007B83;
+      width: 18px;
+      height: 18px;
+      text-align: center;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .checkbox-group label {
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Book a Lab Test</h2>
+    <form id="bookingForm">
+      <div class="form-group">
+        <label for="name">Full Name*</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number*</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email (optional)</label>
+        <input type="email" id="email" name="email">
+      </div>
+
+      <div class="form-group">
+        <label for="test">Select Test*</label>
+        <select id="test" name="test" required>
+          <option value="">-- Choose a Test --</option>
+          <option value="CBC">Complete Blood Count (CBC)</option>
+          <option value="Lipid">Lipid Profile</option>
+          <option value="Thyroid">Thyroid Panel (T3, T4, TSH)</option>
+          <option value="Diabetes">Diabetes Panel (FBS, PPBS, HbA1c)</option>
+          <option value="Vitamin">Vitamin D & B12</option>
+          <option value="Full Body">Full Body Checkup</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Preferred Date*</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="notes">Additional Notes</label>
+        <textarea id="notes" name="notes" rows="3" placeholder="E.g. Preferred time, fasting status, etc."></textarea>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="agree" name="agree" required>
+        <label for="agree">I agree to the terms and conditions.</label>
+      </div>
+
+      <button type="submit">Book Test</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // prevent actual submission
+      const agree = document.getElementById("agree");
+      if (agree.checked) {
+        alert("✅ Your test booking has been submitted successfully! We’ll contact you shortly.");
+        this.reset(); // Optionally reset the form
+      } else {
+        alert("⚠️ Please agree to the terms before submitting.");
+      }
+    });
+  </script>
+
+</body>
+</html>
